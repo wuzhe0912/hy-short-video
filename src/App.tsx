@@ -1,7 +1,11 @@
 // import { useState } from 'react';
 
 function App() {
-  return <main className='app'>Hello App</main>;
+  return (
+    <>
+      <div className='text-sky-400 underline'>Hello App!</div>
+    </>
+  );
 }
 
 export default App;
