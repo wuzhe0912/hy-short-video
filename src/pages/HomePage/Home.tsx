@@ -6,12 +6,14 @@ function Home() {
   const [activeSection, setActiveSection] = useState('ForYou');
 
   const switchSection = (section: string) => {
+    console.log(section);
+
     setActiveSection(section);
   };
 
   return (
     <div className='home-wrapper'>
-      <nav className='absolute left-1/2 flex justify-center transform -translate-x-1/2 whitespace-nowrap'>
+      <nav className='flex'>
         <div
           className={`mr-4 ${activeSection === 'Following' ? 'active' : ''}`}
           onClick={() => switchSection('Following')}>
@@ -24,7 +26,7 @@ function Home() {
         </div>
       </nav>
 
-      <div className='video-content'>
+      <div className='video-content mt-4'>
         {activeSection === 'ForYou' ? <ForYou /> : <Following />}
       </div>
     </div>

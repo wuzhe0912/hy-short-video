@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import VideoPlayer from '@/components/VideoPlayer';
 import { videoItemType } from '@/interfaces/VideoLinkTypes';
 
 const Following = () => {
@@ -17,9 +18,7 @@ const Following = () => {
         <ul>
           {data.items.map((item, index: number) => (
             <li key={index}>
-              <h2>{item.title}</h2>
-              <img src={item.cover} alt={item.title} />
-              <a href={item.play_url}>Play</a>
+              <VideoPlayer videoData={item} />
             </li>
           ))}
         </ul>
