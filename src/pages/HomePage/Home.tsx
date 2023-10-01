@@ -5,28 +5,31 @@ import Following from './Following';
 function Home() {
   const [activeSection, setActiveSection] = useState('ForYou');
 
-  const switchSection = (section: string) => {
-    console.log(section);
-
+  const switchSection = (section: string, event: React.MouseEvent) => {
+    event.stopPropagation();
     setActiveSection(section);
   };
 
   return (
-    <div className='home-wrapper'>
-      <nav className='flex'>
+    <div className='home-wrapper relative h-full'>
+      <nav className='flex absolute z-50 w-full h-[87px] justify-center items-center'>
         <div
-          className={`mr-4 ${activeSection === 'Following' ? 'active' : ''}`}
-          onClick={() => switchSection('Following')}>
+          className={`mr-8 ${
+            activeSection === 'Following' ? 'active text-amber-900' : ''
+          }`}
+          onClick={(e) => switchSection('Following', e)}>
           Following
         </div>
         <div
-          className={activeSection === 'ForYou' ? 'active' : ''}
-          onClick={() => switchSection('ForYou')}>
+          className={`${
+            activeSection === 'ForYou' ? 'active text-amber-900' : ''
+          }`}
+          onClick={(e) => switchSection('ForYou', e)}>
           For You
         </div>
       </nav>
 
-      <div className='video-content mt-4'>
+      <div className='video-content h-full'>
         {activeSection === 'ForYou' ? <ForYou /> : <Following />}
       </div>
     </div>

@@ -29,8 +29,6 @@ function VideoPlayer({ videoData }: VideoPlayerProps) {
   };
 
   const handleVideoClick = () => {
-    console.log(1, videoRef.current);
-
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause();
@@ -48,7 +46,7 @@ function VideoPlayer({ videoData }: VideoPlayerProps) {
   };
 
   return (
-    <div className='relative'>
+    <div className='relative h-full'>
       <video
         ref={videoRef}
         onClick={handleVideoClick}
@@ -60,7 +58,7 @@ function VideoPlayer({ videoData }: VideoPlayerProps) {
       {showPlayIcon && (
         <button
           onClick={handlePlayIconClick}
-          className='absolute inset-0 flex items-center justify-center w-full h-full z-10'>
+          className='absolute inset-0 flex items-center justify-center w-full h-full z-40'>
           <img src={playIcon} alt='Play video' className='w-24 h-24' />
         </button>
       )}

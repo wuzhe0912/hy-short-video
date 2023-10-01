@@ -10,7 +10,7 @@ function App() {
           <section className='relative flex-1 max-h-[calc(100%-49px)]'>
             <AppRoutes />
           </section>
-          <section className='relative flex-none'>
+          <section className='relative flex-none z-20'>
             <Navigation />
           </section>
         </div>

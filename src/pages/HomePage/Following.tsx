@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import VideoPlayer from '@/components/VideoPlayer';
 import { videoItemType } from '@/interfaces/VideoLinkTypes';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { SwiperOptions } from 'swiper/types';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 const Following = () => {
   const [data, setData] = useState<{ items: videoItemType[] } | null>(null);
@@ -12,20 +16,18 @@ const Following = () => {
       .catch((error) => console.error('Error fetching data: ', error));
   }, []);
 
+  const options: SwiperOptions = {
+    direction: 'vertical',
+  };
+
   return (
-    <div>
-      {data ? (
-        <ul>
-          {data.items.map((item, index: number) => (
-            <li key={index}>
-              <VideoPlayer videoData={item} />
-            </li>
-          ))}
-        </ul>
-      ) : (
-        'Loading...'
-      )}
-    </div>
+    <Swiper {...options} className='h-full'>
+      {data?.items.map((item, index: number) => (
+        <SwiperSlide key={index}>
+          <VideoPlayer videoData={item} />
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 };
 
