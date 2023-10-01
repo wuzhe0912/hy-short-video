@@ -14,14 +14,14 @@ function Home() {
     <div className='home-wrapper relative h-full'>
       <nav className='flex absolute z-50 w-full h-[87px] justify-center items-center'>
         <div
-          className={`mr-8 ${
+          className={`mr-8 text-xl font-bold ${
             activeSection === 'Following' ? 'active text-amber-900' : ''
           }`}
           onClick={(e) => switchSection('Following', e)}>
           Following
         </div>
         <div
-          className={`${
+          className={`text-xl font-bold ${
             activeSection === 'ForYou' ? 'active text-amber-900' : ''
           }`}
           onClick={(e) => switchSection('ForYou', e)}>

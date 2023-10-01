@@ -51,7 +51,7 @@ function VideoPlayer({ videoData }: VideoPlayerProps) {
         ref={videoRef}
         onClick={handleVideoClick}
         controls
-        className='w-full h-full'
+        className='w-full h-full object-cover'
         poster={videoData.cover}>
         <source src={videoData.play_url} type='application/x-mpegURL' />
       </video>

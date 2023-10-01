@@ -1,7 +1,11 @@
-import React from 'react';
+// import React from 'react';
 
 function Discover() {
-  return <div>Discover</div>;
+  return (
+    <div className='flex justify-center items-center h-screen'>
+      Discover Page
+    </div>
+  );
 }
 
 export default Discover;
