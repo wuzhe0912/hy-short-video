@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import ForYou from './ForYou';
+import Following from './Following';
 
 function Home() {
   const [activeSection, setActiveSection] = useState('ForYou');
@@ -23,15 +25,7 @@ function Home() {
       </nav>
 
       <div className='video-content'>
-        {activeSection === 'ForYou' ? (
-          <div>
-            <h1>For You Content</h1>
-          </div>
-        ) : (
-          <div>
-            <h1>Following Content</h1>
-          </div>
-        )}
+        {activeSection === 'ForYou' ? <ForYou /> : <Following />}
       </div>
     </div>
   );

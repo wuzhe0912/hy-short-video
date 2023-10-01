@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import Home from '@/pages/Home';
+import Home from '@/pages/HomePage/Home';
 import Discover from '@/pages/Discover';
 
 function AppRoutes() {
