@@ -23,8 +23,6 @@
 
 ### 如何設計一部影片中，提供前 5 分鐘的試看內容，並且在試看結束後，限制使用者必須付費才能繼續觀看
 
-設計一個具有 5 分鐘免費試用的視頻播放器涉及前端和後端邏輯。以下是如何實現此功能的高級概述：
-
 #### 後端模擬邏輯
 
 - 確認使用者已認證登入，用於追蹤不同使用者的試看狀況與種類。
@@ -91,10 +89,19 @@ function VideoPlayer() {
 export default VideoPlayer;
 ```
 
+## Run Project
+
+```
+pnpm install
+
+pnpm dev
+```
+
 ## Technology used
 
-- React 18
-- TypeScript
+- React 18, React Router 6
+- TypeScript 5.0.2
+- Node.js 18.18.0
 - Vite 4.4.5
 - TailwindCSS
 - hls.js
