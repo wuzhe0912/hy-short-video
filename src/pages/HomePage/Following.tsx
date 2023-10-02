@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import VideoPlayer from '@/components/VideoPlayer';
+import VideoPlayer from '@/components/VideoPlayer/VideoPlayer';
 import { videoItemType } from '@/interfaces/VideoLinkTypes';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SwiperOptions } from 'swiper/types';

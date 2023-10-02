@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import Hls from 'hls.js';
 import { videoItemType } from '@/interfaces/VideoLinkTypes';
 import playIcon from '@/assets/play.svg';
+import { useVideoPlayback } from '@/hooks/useVideoPlayback';
 
 interface VideoPlayerProps {
   videoData: videoItemType;
@@ -11,9 +12,13 @@ function VideoPlayer({ videoData }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showPlayIcon, setShowPlayIcon] = useState(true);
+  const { playbackTimes, setPlaybackTime } = useVideoPlayback();
 
   useEffect(() => {
     loadVideo(videoData.play_url);
+    if (videoRef.current && playbackTimes[videoData.title]) {
+      videoRef.current.currentTime = playbackTimes[videoData.title];
+    }
   }, [videoData]);
 
   const loadVideo = (url: string) => {
@@ -32,6 +37,7 @@ function VideoPlayer({ videoData }: VideoPlayerProps) {
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause();
+        setPlaybackTime(videoData.title, videoRef.current.currentTime);
       } else {
         videoRef.current.play();
       }
